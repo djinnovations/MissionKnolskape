@@ -22,11 +22,18 @@
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
         <item name="android:titleTextStyle">@style/Toolbar.TitleText</item>
+        <item name="android:buttonStyle">@style/button</item>
         <item name="titleTextAppearance">@style/Toolbar.TitleText</item>
         <item name="android:textColorPrimary">@color/colorWhite</item>
         <item name="android:textColorSecondary">@color/colorWhite</item>
         <item name="actionMenuTextColor">@color/colorBlackDimText</item>
         <item name="android:actionBarStyle">@style/toolbarStyle</item>
+    </style>
+
+    <style name="socialLoginButton" parent="@android:style/Widget.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/social_button_bg</item>
     </style>
 
 
@@ -57,6 +64,27 @@
         <item name="android:textSize">16sp</item>
         <item name="color">@color/colorWhite</item>
         <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="circleButton" parent="@android:style/Widget.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/social_button_bg</item>
+    </style>
+
+    <style name="button" parent="@android:style/Widget.Button">
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+    <style name="AlertDialogAnimHelp">
+        <item name="android:windowEnterAnimation">@anim/anim_dialog_go_up</item>
+        <item name="android:windowExitAnimation">@anim/anim_dialog_fall_down</item>
     </style>
 
 </resources>

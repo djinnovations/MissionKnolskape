@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activities.EachProjectPickerActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@android:color/transparent">
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:id="@+id/shadowTop"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/appBarLayout"
+        android:background="@drawable/shadow" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/shadowTop">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvThumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:visibility="visible">
+
+            </android.support.v7.widget.RecyclerView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/image_palce_holder_background_dark_border"
+                android:cropToPadding="true">
+
+                <ImageView
+                    android:id="@+id/ivAddImg"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/feed_fotter_button_bg"
+                    android:padding="10dp"
+                    android:src="@drawable/vector_icon_upload_image" />
+
+
+                <ImageView
+                    android:id="@+id/previewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_margin="1dp"
+                    android:scaleType="centerInside" />
+
+                <ImageButton
+                    android:id="@+id/trigger"
+                    style="@style/circleButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/vecor_icon_pencil"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_above="@+id/paymentModeUI"
+        android:background="@drawable/shadow_up" />
+
+    <RelativeLayout
+        android:id="@+id/paymentModeUI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorWhite"
+        android:paddingBottom="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="Save Project"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

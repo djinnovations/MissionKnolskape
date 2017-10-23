@@ -1,5 +1,6 @@
 package dj.missionknolskape.main.utils;
 
+import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -16,6 +17,13 @@ public class IDUtils {
                 return result;
             }
         }
+    }
+
+
+    public static int randInt(int min, int max) {
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
     }
 
 }

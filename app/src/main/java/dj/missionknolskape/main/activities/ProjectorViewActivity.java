@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import dj.missionknolskape.main.R;
@@ -29,6 +30,7 @@ public class ProjectorViewActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     //LinkedHashSet<String> urlSet = new LinkedHashSet<>();
     ArrayList<String> urlArrayList = new ArrayList();
+    ArrayList<File> fileArrayList = new ArrayList<>();
     String title;
 
     @Override
@@ -37,7 +39,10 @@ public class ProjectorViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_projector_view);
 
         if (getIntent() != null) {
-            urlArrayList = getIntent().getStringArrayListExtra(IntentKeys.PROJECTOR_VIEW_IMAGES_LIST);
+            urlArrayList = getIntent().getStringArrayListExtra(IntentKeys.PROJECTOR_IMAGE_URL);
+            for (String path : getIntent().getStringArrayListExtra(IntentKeys.PROJECTOR_FILES)) {
+                fileArrayList.add(new File(path));
+            }
             title = getIntent().getStringExtra(IntentKeys.TITLE);
         }
         intializeViews();
@@ -53,6 +58,14 @@ public class ProjectorViewActivity extends AppCompatActivity {
         //urlArrayList.addAll(urlSet);
         if (urlArrayList != null) {
             if (urlArrayList.size() == 0) {
+                displayNoImagesList();
+            } else {
+                mViewPager.setAdapter(new SamplePagerAdapter());
+                mViewPager.setVisibility(View.VISIBLE);
+                _ivNoYet.setVisibility(View.GONE);
+            }
+        } else if (fileArrayList != null) {
+            if (fileArrayList.size() == 0) {
                 displayNoImagesList();
             } else {
                 mViewPager.setAdapter(new SamplePagerAdapter());
@@ -90,7 +103,6 @@ public class ProjectorViewActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         if (item.getItemId() == android.R.id.home) {
-
             finish();
         }
         return super.onOptionsItemSelected(item);
@@ -107,6 +119,8 @@ public class ProjectorViewActivity extends AppCompatActivity {
         public int getCount() {
             if (urlArrayList != null) {
                 return urlArrayList.size();
+            } else if (fileArrayList != null) {
+                return fileArrayList.size();
             } else
                 return 0;
         }
@@ -137,7 +151,11 @@ public class ProjectorViewActivity extends AppCompatActivity {
         } else {
             myImageView = (ImageView) recycled;
         }*/
-            String url = urlArrayList.get(position);
+            String url = "";
+            if (urlArrayList != null)
+                url = urlArrayList.get(position);
+            else if (fileArrayList != null)
+                url = fileArrayList.get(position).getAbsolutePath();
             Log.d("dj", "ProjectorViewActivity - url, position: " + url + "  **&&&&&** " + position);
             /*Glide.with(ProjectorViewActivity.this)
                     .load(url)
@@ -145,11 +163,23 @@ public class ProjectorViewActivity extends AppCompatActivity {
                     .placeholder(R.drawable.)
                     .crossFade()
                     .into(imgView);*/
-            if (!TextUtils.isEmpty(url))
-                Picasso.with(getApplicationContext())
-                        .load(url)
-                        .placeholder(R.drawable.vector_icon_progress_animation)
-                        .into(imgView);
+            if (urlArrayList != null) {
+                if (urlArrayList.size() > 0) {
+                    if (!TextUtils.isEmpty(url))
+                        Picasso.with(getApplicationContext())
+                                .load(url)
+                                .placeholder(R.drawable.vector_icon_progress_animation)
+                                .into(imgView);
+                }
+            } else if (fileArrayList != null) {
+                if (fileArrayList.size() > 0) {
+                    if (!TextUtils.isEmpty(url))
+                        Picasso.with(getApplicationContext())
+                                .load(fileArrayList.get(position))
+                                .placeholder(R.drawable.vector_icon_progress_animation)
+                                .into(imgView);
+                }
+            }
 
         }
 

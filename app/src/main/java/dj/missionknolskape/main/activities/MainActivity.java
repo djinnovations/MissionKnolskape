@@ -60,7 +60,7 @@ public class MainActivity extends AbstractApodActivity {
             list.add(hdurl);
             Intent intent = new Intent(MainActivity.this, ProjectorViewActivity.class);
             intent.putExtra(IntentKeys.TITLE, prefManager.getTitle());
-            intent.putStringArrayListExtra(IntentKeys.PROJECTOR_VIEW_IMAGES_LIST, list);
+            intent.putStringArrayListExtra(IntentKeys.PROJECTOR_IMAGE_URL, list);
             startActivity(intent);
             //}
         }

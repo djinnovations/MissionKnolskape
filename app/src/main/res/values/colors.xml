@@ -5,4 +5,46 @@
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorBlackDimText">#595959</color>
+
+
+    <integer-array name="imageBank">
+        <item>@drawable/vector_thumbnail_1</item>
+        <item>@drawable/vector_thumbnail_2</item>
+        <item>@drawable/vector_thumbnail_3</item>
+    </integer-array>
+
+
+    <color name="buttonPressBorder">@color/colorPrimaryDark</color>
+    <color name="buttonPressStart">#34281d</color>
+    <color name="buttonPressEnd">#34281d</color>
+    <color name="buttonPressTextColor">#ffffff</color>
+
+    <color name="buttonNormalBorder">#5d5143</color>
+    <color name="buttonNormalStart">#8e7358</color>
+    <color name="buttonNormalEnd">#6c533e</color>
+    <color name="buttonNormalTextColor">#ffffff</color>
+
+    <color name="buttonDisableBorder">@color/colorPrimaryDark</color>
+    <color name="buttonDisableStart">#dd34281d</color>
+    <color name="buttonDisableEnd">#dd34281d</color>
+    <color name="buttonDisableTextColor">#ddffffff</color>
+
+
+    <color name="socialLoginButtonTextNormalColor">@color/buttonNormalTextColor</color>
+    <color name="socialLoginButtonTextPressColor">@color/buttonPressTextColor</color>
+    <color name="socialLoginButtonTextDisableColor">@color/buttonDisableTextColor</color>
+
+    <color name="socialLoginButtonPressBorder">@color/buttonPressBorder</color>
+    <color name="socialLoginButtonPressStart">@color/buttonPressStart</color>
+    <color name="socialLoginButtonPressEnd">@color/buttonPressEnd</color>
+
+    <color name="socialLoginButtonNormalBorder">@color/buttonNormalBorder</color>
+    <color name="socialLoginButtonNormalStart">@color/buttonNormalStart</color>
+    <color name="socialLoginButtonNormalEnd">@color/buttonNormalEnd</color>
+
+    <color name="darkColor">#34281d</color>
+    <color name="bgGradientEnd">#ffffff</color>
+    <color name="bgGradientStart">#ffffff</color>
+
+
 </resources>

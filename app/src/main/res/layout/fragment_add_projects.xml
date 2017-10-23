@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="20dp">
+
+    <LinearLayout
+        android:id="@+id/llAddHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <EditText
+            android:id="@+id/etProjName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.6"
+            android:background="@drawable/edittext_style_bg"
+            android:inputType="textAutoComplete|textCapWords"
+            android:maxLines="1"
+            android:padding="10dp"
+            android:hint="Project Name"
+            android:scrollHorizontally="true"
+            android:text=""
+            android:textColorHint="@color/colorBlackDimText"
+            android:textColor="@color/colorBlackDimText"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:id="@+id/llBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="0dp"
+            android:background="@drawable/social_button_bg"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/add"
+                android:gravity="center"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvThumbnail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"></android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>
